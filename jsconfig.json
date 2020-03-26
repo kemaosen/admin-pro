@@ -1,0 +1,18 @@
+{
+    "compilerOptions": {
+        "target": "ES6",    
+        "module": "commonjs",
+        "allowSyntheticDefaultImports": true,
+        "baseUrl": "../",
+        "paths": {"@/*": ["*"]}
+    },
+    "exclude": [
+      "node_modules",
+      "npm-offline-mirror",
+      "dist",
+      "script",
+      "server",
+      "statics"
+    ],
+    "include": ["src/**/*"]
+  }

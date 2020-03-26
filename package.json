@@ -8,8 +8,17 @@
     "lint": "vue-cli-service lint"
   },
   "dependencies": {
+    "axios": "^0.19.2",
     "core-js": "^3.6.4",
+    "echarts": "^4.7.0",
+    "element-ui": "^2.13.0",
+    "js-cookie": "^2.2.1",
+    "normalize.css": "^8.0.1",
+    "nprogress": "^0.2.0",
+    "qs": "^6.9.2",
     "vue": "^2.6.11",
+    "vue-i18n": "^8.15.7",
+    "vue-qriously": "^1.1.1",
     "vue-router": "^3.1.5",
     "vuex": "^3.1.2"
   },
@@ -21,6 +30,7 @@
     "@vue/cli-service": "~4.2.0",
     "@vue/eslint-config-standard": "^5.1.0",
     "babel-eslint": "^10.0.3",
+    "babel-plugin-component": "^1.1.1",
     "eslint": "^6.7.2",
     "eslint-plugin-import": "^2.20.1",
     "eslint-plugin-node": "^11.0.0",
@@ -43,7 +53,65 @@
     "parserOptions": {
       "parser": "babel-eslint"
     },
-    "rules": {}
+    "rules": {
+      "indent": [
+        "error",
+        4
+      ],
+      "vue/script-indent": [
+        "error",
+        4
+      ],
+      "semi": [
+        "error",
+        "always"
+      ],
+      "semi-spacing": 0,
+      "semi-style": [
+        2,
+        "last"
+      ],
+      "sort-imports": 0,
+      "line-comment-position": [
+        "off"
+      ],
+      "no-multi-spaces": [
+        "error",
+        {
+          "ignoreEOLComments": true
+        }
+      ],
+      "lines-around-comment": 0,
+      "no-unused-expressions": [
+        "error",
+        {
+          "allowShortCircuit": true,
+          "allowTernary": true
+        }
+      ],
+      "no-useless-escape": 0,
+      "array-bracket-spacing": [
+        "error",
+        "always"
+      ],
+      "eqeqeq": [
+        "error",
+        "always",
+        {
+          "null": "ignore"
+        }
+      ],
+      "no-redeclare": 2,
+      "no-tabs": 0,
+      "quotes": [
+        2,
+        "double",
+        {
+          "avoidEscape": true,
+          "allowTemplateLiterals": true
+        }
+      ]
+    }
   },
   "browserslist": [
     "> 1%",
