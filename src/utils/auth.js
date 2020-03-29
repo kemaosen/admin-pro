@@ -3,6 +3,7 @@
  * @param {*} name 参数名
  * @param {*} value 参数值
  * @token
+ * @promissionRouter    后台返回的动态路由
  *
  *
  *
@@ -13,5 +14,5 @@ export const getSession = (name) => {
 };
 
 export const setSession = (name, value) => {
-    return JSON.stringify(sessionStorage.setItem(name, value));
+    return sessionStorage.setItem(name, JSON.stringify(value));
 };

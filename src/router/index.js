@@ -6,8 +6,13 @@ Vue.use(VueRouter);
 const routes = [
     {
         path: "/",
-        name: "echarts",
-        component: () => import("@/view/EChartsList.vue")
+        name: "layout",
+        component: () => import("../components/Layout/Index.vue")
+    },
+    {
+        path: "/login",
+        name: "login",
+        component: () => import("../view/login/Index.vue")
     }
 ];
 

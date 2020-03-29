@@ -110,7 +110,9 @@
           "avoidEscape": true,
           "allowTemplateLiterals": true
         }
-      ]
+      ],
+      "template-curly-spacing" : "off",
+      "indent": "off"
     }
   },
   "browserslist": [

@@ -5,6 +5,7 @@ import mutations from "./mutations";
 import actions from "./actions";
 import getters from "./getters";
 import user from "./module/user.js";
+import promission from "./module/promission.js";
 
 Vue.use(Vuex);
 
@@ -14,6 +15,7 @@ export default new Vuex.Store({
     getters,
     actions,
     modules: {
-        user
+        user,
+        promission
     }
 });

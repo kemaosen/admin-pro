@@ -1,7 +1,8 @@
  <!-- 页面 -->
 <template>
-    <div class="footer">
-        尾部
+    <div>
+        视频页面
+        <router-view></router-view>
     </div>
 </template>
 <script>
@@ -20,7 +21,4 @@ export default {
 };
 </script>
 <style lang='scss' scoped>
-.footer{
-    height: 50px;
-}
 </style>

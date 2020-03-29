@@ -1,7 +1,7 @@
  <!-- 页面 -->
 <template>
-    <div class="footer">
-        尾部
+    <div>
+        商品管理
     </div>
 </template>
 <script>
@@ -20,7 +20,4 @@ export default {
 };
 </script>
 <style lang='scss' scoped>
-.footer{
-    height: 50px;
-}
 </style>
