@@ -1,4 +1,4 @@
-# inesa-t-web
+# admin-pro
 
 ## Project setup
 ```
