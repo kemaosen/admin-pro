@@ -42,6 +42,8 @@ import { links, nodes } from "../echarts/data.js";
 export default {
     async mounted () {
         const res = await getJCSJEcharts({ projectId: 0, queryType: 1, type: 1 });
+        console.log(res, "数据");
+
         this.dataList = res.data.dataList;
         this.yearList = res.data.yearList;
         this.dadeList = res.data.dateList;

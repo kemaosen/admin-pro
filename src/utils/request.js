@@ -4,8 +4,6 @@ import qs from "qs";
 import { getSession } from "@/utils/auth.js";
 import { Message } from "element-ui";
 const service = axios.create({
-    baseURL: "http://localhost:8080/"
-
 });
 
 // 请求拦截器
@@ -14,12 +12,6 @@ service.interceptors.request.use(config => {
         config.headers.Authorization = "Bearer " + getSession("token");
     }
     // 设置post 方法参数序列号化  若图片上传功能请关闭此处
-    if (config.method === "post") {
-        config.data = qs.stringify(config.data);
-        config.headers = {
-            "Content-Type": "application/x-www-form-urlencoded"
-        };
-    }
     return config;
 }, error => {
     console.log(error);
@@ -39,5 +31,27 @@ service.interceptors.response.use(data => {
 }, error => {
     return Promise.resolve(error);
 });
+
+service.api = (url, method, data, options = {}) => {
+    if (method.toLowerCase() === "get") {
+        return service({
+            url: url,
+            data,
+            method,
+            ...options
+        });
+    }
+    if (method.toLowerCase() === "post") {
+        return service({
+            url: url,
+            data: qs.stringify(data),
+            method: "post",
+            options: {
+                headers: { "Content-Type": "application/x-www-form-urlencoded" },
+                ...options
+            }
+        });
+    }
+};
 
 export default service;

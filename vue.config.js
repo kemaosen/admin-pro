@@ -67,19 +67,19 @@ module.exports = {
         host: "0.0.0.0",
         port: 8080, // 端口号
         https: false, // https:{type:Boolean}
-        open: true // 配置自动启动浏览器  open: 'Google Chrome'-默认启动谷歌
+        open: true, // 配置自动启动浏览器  open: 'Google Chrome'-默认启动谷歌
         // proxy: 'http://localhost:9000' // 配置跨域处理,只有一个代理
         // 配置多个代理
-        // proxy: {
-        // '/api': {
-        //     target: 'https://way.jd.com', // 目标主机
-        //     ws: true, // 代理的WebSockets
-        //     changeOrigin: true, // 需要虚拟主机站点
-        //     pathRewrite: {
-        //         '^/api': ''
-        //     }
-        // }
-        // }
+        proxy: {
+            "/api": {
+                target: "http://localhost:8080/mock", // 目标主机
+                ws: true, // 代理的WebSockets
+                changeOrigin: true,     // 是否跨域
+                pathRewrite: {
+                    "^/api": ""             // 如果本身的接口地址就有 '/api' 这种通用前缀，也就是说https: www.exaple.com/api，就可以把 pathRewrite 删掉。
+                }
+            }
+        }
     },
 
     // 第三方插件选项

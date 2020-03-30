@@ -1,7 +1,7 @@
 import router from "./router";
 import store from "./store";
 import { getSession } from "@/utils/auth";
-const whiteList = [ "/login" ];// 不需要判断权限的路由地址
+const whiteList = [ "/login", "/" ];// 不需要判断权限的路由地址
 
 router.beforeEach(async (to, from, next) => {
     const hasToken = getSession("promissionRouter");// 获取token的值 判断是否登录了  这里我用路由来判断 实际上使用用户登录状态判断

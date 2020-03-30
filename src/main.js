@@ -21,7 +21,7 @@ Object.keys(custom).forEach(key => {
 });
 
 Vue.config.productionTip = false;
-
+require("./mock/index.js");
 new Vue({
     router,
     store,
