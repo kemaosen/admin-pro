@@ -1,6 +1,5 @@
 import service from "@/utils/request.js";
-const baseURL = "https://test.xiaozhangbao.cn:8000/castle-provider-order";
-const baseURLInesa = "http://210.14.69.84:8888/api/";
+import { baseURL, baseURLInesa } from "./baseURL.js";
 export const getJCSJEcharts = (data) => {
     return service.api(baseURL + "/system/statisticsTeachingProduct/getCompare", "post", data);
 };

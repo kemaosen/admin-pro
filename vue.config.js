@@ -72,7 +72,7 @@ module.exports = {
         // 配置多个代理
         proxy: {
             "/api": {
-                target: "http://localhost:8080/mock", // 目标主机
+                target: "http://localhost:8080", // 目标主机
                 ws: true, // 代理的WebSockets
                 changeOrigin: true,     // 是否跨域
                 pathRewrite: {
