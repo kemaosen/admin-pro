@@ -2,9 +2,9 @@
 <template>
     <div class="wrap">
         <div class="login ">
-            <el-input v-model="input" placeholder="请输入账号"></el-input>
+            <el-input v-model="input" placeholder="222"></el-input>
             <el-input v-model="pwad" placeholder="请输入密码"></el-input>
-            <el-button @click="handleSubmit">登录</el-button>
+            <el-button @click="handleSubmit">{{ $t('login.denglu') }}</el-button>
         </div>
     </div>
 </template>
