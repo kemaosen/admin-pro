@@ -11,6 +11,7 @@
               <template slot-scope="scope">
                 <el-button @click="handleClick(scope.row)" type="text" size="small" >跳转</el-button>
                 <el-button @click="handleClick(scope.row)" type="text" size="small" v-permission="['user_delete']" >删除</el-button>
+                <el-button @click="handleClickDown()" type="text" size="small"  >下载</el-button>
               </template>
             </el-table-column>
           </el-table>
@@ -25,6 +26,7 @@
 import permission from "@/directive/permission/index.js";
 import QuillText from "@/components/RichText/QuillText.vue";
 import { getMockOne } from "../api/mock.js";
+import { parseTime } from "@/utils/index.js";
 const columns = [
     { prop: "Date", label: "日期", width: 180 },
     { prop: "Name", label: "姓名", width: 180 },
@@ -39,7 +41,10 @@ export default {
     data () {
         return {
             columns: columns,
-            tableData: []
+            tableData: [],
+            filename: "",            // 非必填 文件名
+            autoWidth: true,         // 非必填 单元格大小是否自动
+            bookType: ""             // 非必填 下载的文件类型
         };
     },
     methods: {
@@ -50,6 +55,30 @@ export default {
         },
         handleClick (row) {
             window.open(row.Url);
+        },
+        handleClickDown () {
+            import("@/vendor/Export2Excel").then(excel => {
+                const tHeader = [ "Id", "Title", "Author", "Readings", "Date" ];
+                const filterVal = [ "Natural", "String", "Name", "Paragraph", "Date" ];
+                const list = this.tableData;// 数据
+                const data = this.formatJson(filterVal, list);
+                excel.export_json_to_excel({
+                    header: tHeader,
+                    data,
+                    filename: this.filename,
+                    autoWidth: this.autoWidth,
+                    bookType: this.bookType
+                });
+            });
+        },
+        formatJson (filterVal, jsonData) {
+            return jsonData.map(v => filterVal.map(j => {
+                if (j === "timestamp") {
+                    return parseTime(v[j]);
+                } else {
+                    return v[j];
+                }
+            }));
         }
     },
     components: {
