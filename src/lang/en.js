@@ -2,6 +2,7 @@ export default {
     login: {
         user: "账号",
         password: "密码",
-        denglu: "login"
+        denglu: "login",
+        language: "language"
     }
 };

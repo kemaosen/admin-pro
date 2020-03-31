@@ -11,6 +11,15 @@
         </div>
         <!-- 用户信息 退出 -->
         <div class="right">
+            <el-dropdown class="lang">
+                <span>
+                    {{$t("login.language")}}<i class="el-icon-arrow-down el-icon--right"></i>
+                </span>
+                <el-dropdown-menu slot="dropdown">
+                    <el-dropdown-item @click.native="handleChangeLang('zh')">中文</el-dropdown-item>
+                    <el-dropdown-item @click.native="handleChangeLang('en')">English</el-dropdown-item>
+                </el-dropdown-menu>
+            </el-dropdown>
             <el-dropdown>
                 <span class="el-dropdown-link"> Admin </span>
                 <el-dropdown-menu slot="dropdown">
@@ -22,6 +31,7 @@
 </template>
 <script>
 import { mapGetters, mapMutations } from "vuex";
+import { setLocal } from "@/utils/auth.js";
 export default {
     mounted () {
         console.log(this.$router);
@@ -39,8 +49,6 @@ export default {
         },
         // 退出登录
         handleLogOut () {
-            console.log(111);
-
             sessionStorage.clear();
             this.$router.push("/login");
         },
@@ -52,6 +60,11 @@ export default {
                 // eslint-disable-next-line no-unused-expressions
                 item.meta.text === "首页" ? item.path = "/" : this.$route.path === item.path;
             });
+        },
+        // 切换语言
+        handleChangeLang (lang) {
+            setLocal("lang", lang);
+            location.reload();
         },
         ...mapMutations({
             SET_IS_COLLAPSE: "SET_IS_COLLAPSE"
@@ -85,6 +98,11 @@ export default {
         }
         i{
             font-size: 25px;
+        }
+    }
+    .right{
+        .lang{
+            margin-right: 20px;
         }
     }
 }

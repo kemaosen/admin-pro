@@ -9,10 +9,15 @@ const routes = [
     //     name: "layout",
     //     component: () => import("../view/Information.vue")
     // },
+    // {
+    //     path: "/",
+    //     name: "layout",
+    //     component: () => import("../view/EChartsList.vue")
+    // },
     {
         path: "/",
         name: "layout",
-        component: () => import("../view/EChartsList.vue")
+        component: () => import("../components/Layout/Index.vue")
     },
     {
         path: "/login",
