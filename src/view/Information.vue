@@ -17,11 +17,13 @@
         </div>
       </el-col>
     </el-row>
+    <quill-text ></quill-text>
   </div>
 </template>
 
 <script>
 import permission from "@/directive/permission/index.js";
+import QuillText from "@/components/RichText/QuillText.vue";
 import { getMockOne } from "../api/mock.js";
 const columns = [
     { prop: "Date", label: "日期", width: 180 },
@@ -49,6 +51,9 @@ export default {
         handleClick (row) {
             window.open(row.Url);
         }
+    },
+    components: {
+        QuillText
     }
 };
 </script>
