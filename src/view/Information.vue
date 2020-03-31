@@ -9,7 +9,8 @@
             <el-table-column v-for="(col, index) in columns" :key="index" :prop="col.prop" :label="col.label" :width="col.width" ></el-table-column>
             <el-table-column fixed="right" label="操作" width="100">
               <template slot-scope="scope">
-                <el-button @click="handleClick(scope.row)" type="text" size="small">跳转</el-button>
+                <el-button @click="handleClick(scope.row)" type="text" size="small" >跳转</el-button>
+                <el-button @click="handleClick(scope.row)" type="text" size="small" v-permission="['user_delete']" >删除</el-button>
               </template>
             </el-table-column>
           </el-table>
@@ -20,6 +21,7 @@
 </template>
 
 <script>
+import permission from "@/directive/permission/index.js";
 import { getMockOne } from "../api/mock.js";
 const columns = [
     { prop: "Date", label: "日期", width: 180 },
@@ -28,6 +30,7 @@ const columns = [
     { prop: "Paragraph", label: "描述", width: undefined }
 ];
 export default {
+    directives: { permission },
     created () {
         this.getDataFromApi();
     },

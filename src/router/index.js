@@ -4,21 +4,21 @@ import VueRouter from "vue-router";
 Vue.use(VueRouter);
 
 const routes = [
-    // {
-    //     path: "/",
-    //     name: "layout",
-    //     component: () => import("../view/Information.vue")
-    // },
+    {
+        path: "/",
+        name: "layout",
+        component: () => import("../view/Information.vue")
+    },
     // {
     //     path: "/",
     //     name: "layout",
     //     component: () => import("../view/EChartsList.vue")
     // },
-    {
-        path: "/",
-        name: "layout",
-        component: () => import("../components/Layout/Index.vue")
-    },
+    // {
+    //     path: "/",
+    //     name: "layout",
+    //     component: () => import("../components/Layout/Index.vue")
+    // },
     {
         path: "/login",
         name: "login",
