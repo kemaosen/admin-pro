@@ -11,11 +11,3 @@ export const getUserLineOne = (data) => {
         method: "get"
     });
 };
-
-export const getMapShangHai = (data) => {
-    return service({
-        url: "../static/shanghai.json",
-        data,
-        method: "get"
-    });
-};
