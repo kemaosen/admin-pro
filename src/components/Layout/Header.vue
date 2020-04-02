@@ -54,7 +54,6 @@ export default {
         },
         getBread () {
             this.breadlist = this.$route.matched;
-            console.log(this.breadlist, "113");
             this.$route.matched.forEach((item, index) => {
                 // 先判断父级路由是否是空字符串或者meta是否为首页，直接复写路径到根路径
                 // eslint-disable-next-line no-unused-expressions

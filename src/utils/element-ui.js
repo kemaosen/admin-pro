@@ -1,7 +1,7 @@
 import Vue from "vue";
 import {
     Button, Select, Container, Header, Footer, Main, Aside, Dropdown, DropdownMenu, DropdownItem, Menu, Submenu, MenuItem, MenuItemGroup, Scrollbar,
-    Input, Breadcrumb, BreadcrumbItem, Table, TableColumn, Row, Col
+    Input, Breadcrumb, BreadcrumbItem, Table, TableColumn, Row, Col, Message
 } from "element-ui";
 Vue.use(Button);
 Vue.use(Select);
@@ -25,3 +25,4 @@ Vue.use(Table);
 Vue.use(TableColumn);
 Vue.use(Row);
 Vue.use(Col);
+Vue.prototype.$message = Message;

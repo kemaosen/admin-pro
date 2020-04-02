@@ -1,7 +1,7 @@
  <!-- 页面 -->
 <template>
     <div class="svg-list">
-        <div v-for="(value) in svgList" :key="value.default.id" class="svg-item">
+        <div v-for="(value) in svgList" :key="value.default.id" class="svg-item" @click="handleCopy($event,value)">
             <svg-icon  :icon-class="value.default.id.substring (5)" ></svg-icon>
             <span>{{value.default.id.substring (5)}}</span>
         </div>
@@ -9,9 +9,9 @@
 </template>
 <script>
 import { svgList } from "@/icons/index.js";
+import clipboard from "@/utils/clipboard.js";
 export default {
     mounted () {
-        console.log(svgList);
     },
     data () {
         return {
@@ -19,11 +19,13 @@ export default {
         };
     },
     methods: {
-
+        handleCopy (event, value) {
+            clipboard(`<svg-icon  icon-class="${value.default.id.substring(5)}" ></svg-icon>`, event);
+        }
     }
 };
 </script>
-<style lang='scss' scoped>
+<style lang='scss' coped>
 .svg-list{
     display: flex;
     flex-wrap: wrap;
@@ -40,6 +42,7 @@ export default {
         svg{
             width: 3rem;
             height: 3rem;
+            pointer-events: none;
         }
     }
 }

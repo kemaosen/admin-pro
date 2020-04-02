@@ -18,7 +18,6 @@ router.beforeEach(async (to, from, next) => {
                 try {
                     store.dispatch("promission/SET_NAV_ROUTER", getSession("promissionRouter"))
                     .then(routerList => {
-                        console.log(routerList);
                         router.addRoutes(routerList);
                         next({ ...to, replace: true });
                     })
