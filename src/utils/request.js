@@ -5,6 +5,7 @@ import { getSession } from "@/utils/auth.js";
 import { Message, Loading } from "element-ui";
 import { debounce } from "@/utils/index.js";
 const service = axios.create({
+    baseURL: process.env.VUE_APP_BASE_API
 });
 
 let loading;
