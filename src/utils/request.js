@@ -2,12 +2,45 @@ import axios from "axios";
 import store from "@/store/index";
 import qs from "qs";
 import { getSession } from "@/utils/auth.js";
-import { Message } from "element-ui";
+import { Message, Loading } from "element-ui";
+import { debounce } from "@/utils/index.js";
 const service = axios.create({
 });
 
+let loading;
+let needLoadingRequestCount = 0;
+// 显示全局loading
+export function showFullScreenLoading () {
+    if (needLoadingRequestCount === 0) {
+      startLoading();
+    }
+    needLoadingRequestCount++;
+  }
+// 关闭全局loading
+export function tryHideFullScreenLoading () {
+    if (needLoadingRequestCount <= 0) return;
+    needLoadingRequestCount--;
+    if (needLoadingRequestCount === 0) {
+        // endLoading();// 页面一开始多个请求 loading会加载多次
+        debounce(endLoading, 200);// 函数防抖 200ms 只执行一次
+    }
+}
+function startLoading () {
+    loading = Loading.service({
+      lock: true,
+      text: "加载中……",
+      background: "rgba(0, 0, 0, 0.7)"
+    });
+}
+
+function endLoading () {
+    if (needLoadingRequestCount === 0) {
+        loading.close();
+    }
+}
 // 请求拦截器
 service.interceptors.request.use(config => {
+    showFullScreenLoading();
     if (store.getters.token) {
         config.headers.Authorization = "Bearer " + getSession("token");
     }
@@ -19,6 +52,7 @@ service.interceptors.request.use(config => {
 });
 // 响应拦截
 service.interceptors.response.use(data => {
+    tryHideFullScreenLoading();
     var res = data.data;
     if (res.status === 401) { // token 失效
         sessionStorage.clear();
