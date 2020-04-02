@@ -23,6 +23,11 @@ const routes = [
         path: "/login",
         name: "login",
         component: () => import("../view/login/Index.vue")
+    },
+    {
+        path: "/svgList",
+        name: "svg",
+        component: () => import("../components/SvgIcon/SvgList")
     }
 ];
 

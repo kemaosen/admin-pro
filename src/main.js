@@ -5,6 +5,7 @@ import store from "./store";
 import "normalize.css";
 import "@/utils/element-ui.js";
 import "./style/index.scss";
+import "./icons/index.js";
 import "./permission.js";
 // 引入二维码插件
 import VueQriously from "vue-qriously";
@@ -29,7 +30,7 @@ Object.keys(custom).forEach(key => {
 Vue.use(Element, {
     size: 12 || "medium",
     i18n: (key, value) => i18n.t(key, value)
-  });
+});
 
 Vue.config.productionTip = false;
 
