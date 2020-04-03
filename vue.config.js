@@ -88,7 +88,7 @@ module.exports = {
             //     }
             // }
             [process.env.VUE_APP_BASE_API]: {
-                target: "http://localhost:8080", // 目标主机
+                target: "http://jsonplaceholder.typicode.com", // 目标主机
                 ws: true, // 代理的WebSockets
                 changeOrigin: true,     // 是否跨域
                 pathRewrite: {

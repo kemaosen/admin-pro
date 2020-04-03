@@ -8,7 +8,6 @@ import "./style/index.scss";
 import "./icons/index.js";
 import "./permission.js";
 // 引入二维码插件
-import VueQriously from "vue-qriously";
 // 引入eCharts
 // eslint-disable-next-line import/first
 import echarts from "echarts";
@@ -22,7 +21,9 @@ import Element from "element-ui";
 import "quill/dist/quill.core.css";
 import "quill/dist/quill.snow.css";
 import "quill/dist/quill.bubble.css";
+import VueQriously from "vue-qriously";
 Vue.use(VueQriously);
+
 Vue.prototype.$echarts = echarts;
 Object.keys(custom).forEach(key => {
     Vue.filter(key, custom[key]);
