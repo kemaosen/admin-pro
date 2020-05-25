@@ -9,11 +9,13 @@
             <NumberTwo :value="852000000"  refName="b5" title="财务数据"></NumberTwo>
             <NumberTwo :value="992000000"  refName="b6" title="财务数据"></NumberTwo>
             <NumberTwo :value="20"  refName="b6" title="财务数据"></NumberTwo>
+            <Number :value="20"  refName="b6" title="财务数据"></Number>
         </div>
 
         <div class="echarts-line">
             <line-bar id="lineBar" :dataList="dataList" :date-list="dadeList" :year-list="yearList" :option="options.barOption" ></line-bar>
         </div>
+
         <div style="height:200px">
             <Line-echarts id="lineUser" :data-list="lineUserList" :x-list="xList" :option="options.lineOption"></Line-echarts>
         </div>
@@ -31,6 +33,7 @@
 </template>
 <script>
 import NumberTwo from "@/components/echarts/NumberTwo.vue";
+import Number from "@/components/echarts/Number.vue";
 import LineBar from "@/components/echarts/Bar.vue";
 import { getJCSJEcharts } from "@/api/echarts.js";
 import LineEcharts from "@/components/echarts/Line.vue";
@@ -79,7 +82,8 @@ export default {
         LineEcharts,
         PieEcharts,
         GraphEcharts,
-        MapEcharts
+        MapEcharts,
+        Number
     }
 };
 </script>

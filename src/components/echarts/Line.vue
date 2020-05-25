@@ -46,7 +46,7 @@ export default {
         }
     },
     watch: {
-        // // 监听类型切换 重新渲染图表数据
+        // 监听类型切换 重新渲染图表数据
         // echartsType (newValue, oldValue) {
         //     this.option.series[0].type = newValue;
         //     this.myChart.setOption(this.option, true);

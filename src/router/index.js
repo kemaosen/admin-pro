@@ -4,6 +4,11 @@ import VueRouter from "vue-router";
 Vue.use(VueRouter);
 
 const routes = [
+    {
+        path: "/",
+        name: "layout",
+        component: () => import(`../view/components/index.vue`)
+    },
     // {
     //     path: "/",
     //     name: "layout",
@@ -14,11 +19,11 @@ const routes = [
     //     name: "layout",
     //     component: () => import("../view/EChartsList.vue")
     // },
-    {
-        path: "/",
-        name: "layout",
-        component: () => import("../components/Layout/Index.vue")
-    },
+    // {
+    //     path: "/",
+    //     name: "layout",
+    //     component: () => import("../components/Layout/Index.vue")
+    // },
     {
         path: "/login",
         name: "login",
@@ -28,6 +33,11 @@ const routes = [
         path: "/svgList",
         name: "svg",
         component: () => import("../components/SvgIcon/SvgList")
+    },
+    {
+        path: "/EChartsList",
+        name: "EChartsList",
+        component: () => import("../view/EChartsList.vue")
     }
 ];
 

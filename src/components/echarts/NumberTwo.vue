@@ -84,7 +84,7 @@ export default {
         h3{
             font-size: 12px;
             margin: 0;
-            color: orange;
+            color: rgb(255, 165, 0);
             text-align: center;
         }
         span{

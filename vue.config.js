@@ -1,4 +1,5 @@
 // vue.config.js
+'use strict'
 const path = require("path");
 const webpack = require("webpack");
 
@@ -88,14 +89,15 @@ module.exports = {
             //     }
             // }
             [process.env.VUE_APP_BASE_API]: {
-                target: "http://jsonplaceholder.typicode.com", // 目标主机
+                // target: "http://jsonplaceholder.typicode.com", // 目标主机
+                target: "http://localhost:8080", // 目标主机
                 ws: true, // 代理的WebSockets
                 changeOrigin: true,     // 是否跨域
                 pathRewrite: {
                     ["^" + process.env.VUE_APP_BASE_API]: ""             // 如果本身的接口地址就有 '/api' 这种通用前缀，也就是说https: www.exaple.com/api，就可以把 pathRewrite 删掉。
                 }
             }
-        }
+        },
     },
 
     // 第三方插件选项

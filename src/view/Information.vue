@@ -50,7 +50,6 @@ export default {
     methods: {
         async getDataFromApi () {
             const res = await getMockOne();
-            console.log(res);
             this.tableData = res;
         },
         handleClick (row) {
@@ -58,6 +57,7 @@ export default {
         },
         handleClickDown () {
             import("@/vendor/Export2Excel").then(excel => {
+                // const tHeader = [ [ "Id", "Title", "Author", "Readings", "Date" ], [ 1, 2, 3, 4, 5 ] ];
                 const tHeader = [ "Id", "Title", "Author", "Readings", "Date" ];
                 const filterVal = [ "Natural", "String", "Name", "Paragraph", "Date" ];
                 const list = this.tableData;// 数据
