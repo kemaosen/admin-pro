@@ -65,7 +65,7 @@
       "parser": "babel-eslint"
     },
     "rules": {
-      "indent": "off",
+      "indent": ["off", 2],
       "vue/script-indent": [
         "error",
         4
