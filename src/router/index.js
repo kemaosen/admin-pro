@@ -7,13 +7,8 @@ const routes = [
     {
         path: "/",
         name: "layout",
-        component: () => import(`../view/components/index.vue`)
+        component: () => import("@/view/Information.vue")
     },
-    // {
-    //     path: "/",
-    //     name: "layout",
-    //     component: () => import("../view/Information.vue")
-    // },
     // {
     //     path: "/",
     //     name: "layout",
