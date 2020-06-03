@@ -12,7 +12,9 @@
       </el-header>
       <!-- 内容区域 -->
       <el-main>
-        <router-view></router-view>
+        <transition name="slide-right">
+          <router-view></router-view>
+        </transition>
       </el-main>
       <!-- 尾部区域  没啥用-->
       <!-- <el-footer>
@@ -64,5 +66,25 @@ export default {
 }
 .el-header {
   border-bottom: 1px solid #ededed;
+}
+ .slide-right-enter-active,
+.slide-right-leave-active,
+.slide-left-enter-active,
+.slide-left-leave-active {
+  will-change: transform;
+  transition: all .3s;
+  width:100%;
+}
+.slide-right-enter {
+    transform: translateX(-100%);
+}
+.slide-right-leave-active {
+    transform: translateX(100%);
+}
+.slide-left-enter {
+    transform: translateX(100%);
+}
+.slide-left-leave-active {
+    transform: translateX(-100%);
 }
 </style>

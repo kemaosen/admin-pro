@@ -6,7 +6,7 @@
             <h3>后台管理系统</h3>
         </div>
         <el-scrollbar wrap-class="scrollbar-wrapper">
-            <el-menu :default-active="this.$route.path" class="el-menu" :router="true" @open="handleOpen" @close="handleClose" :collapse="isCollapse" background-color="#545c64"  text-color="#fff"
+            <el-menu :default-active="this.$route.path" class="el-menu" :router="true" @open="handleOpen" @close="handleClose" :collapse="isCollapse" background-color="#001529"  text-color="#fff"
             active-text-color="#ffd04b">
                 <el-submenu :index="item.path" v-for="(item,index) in muenRouter" :key="muenRouter+index">
                     <template slot="title">
@@ -51,8 +51,10 @@ export default {
 <style lang='scss' scoped>
 .g-menu{
     height: 100%;
-    background-color: rgb(84, 92, 100);
-    .menu-top{
+    // background-color: rgb(84, 92, 100);
+    background-color:#001529;
+    color: #fff;
+    .-top{
         height: 40px;
         padding: 5px 20px;
         display: flex;
