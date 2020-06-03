@@ -88,7 +88,7 @@ module.exports = {
       //         "^/api": ""             // 如果本身的接口地址就有 '/api' 这种通用前缀，也就是说https: www.exaple.com/api，就可以把 pathRewrite 删掉。
       //     }
       // }
-      [process.env.VUE_APP_BASE_API]: {
+      [process.env.VUE_APP_BASE_API]: { // 引用env 环境变量
         target: "https://api.apiopen.top", // 目标主机
         // target: "http://localhost:8080", // 目标主机
         // ws: true, // 代理的WebSockets

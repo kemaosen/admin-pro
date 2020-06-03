@@ -51,7 +51,6 @@ export default {
 <style lang='scss' scoped>
 .g-menu{
     height: 100%;
-    // background-color: rgb(84, 92, 100);
     background-color:#001529;
     color: #fff;
     .-top{
