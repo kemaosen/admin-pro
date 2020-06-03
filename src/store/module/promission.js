@@ -1,8 +1,8 @@
-import Layout from "../../components/Layout/Index.vue";
-import { setSession } from "../../utils/auth.js";
+import Layout from "@/components/Layout/Index.vue";
+import { setSession } from "@/utils/auth.js";
 const state = {
     promissionRouter: [],            // 处理好的权限路由
-    muenRouter: []  // js对象数组
+    muenRouter: []  // js对象数组 路由表
 };
 const mutations = {
     CHANGE_NAV_ROUTE (state, params) {
@@ -37,7 +37,7 @@ function setRoputer (route) {
         if (item.component === "Layout") {
             obj.component = Layout;
         } else {
-            obj.component = () => import(`@/${item.component}`);
+            obj.component = loadView(item.component) ;
         }
         obj.meta = item.meta;
         if (item.children && item.children.length > 0) {
@@ -47,6 +47,11 @@ function setRoputer (route) {
     });
     return router;
 }
+// 解决无法异步加载路由的问题
+// Cannot find module '@/view/Shop/shop.vue'
+export const loadView = (view) => {
+    return (resolve) => require([ `@/view/${view}` ], resolve);
+};
 export default {
     namespaced: true,
     state,

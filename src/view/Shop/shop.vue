@@ -7,12 +7,13 @@
 </template>
 <script>
 import { getDemoTest } from "@/api/shop.js";
+import { getMockOne } from "@/api/mock.js";
 export default {
     async mounted () {
-        const res1 = await getDemoTest();
-        const res2 = await getDemoTest();
-        const res3 = await getDemoTest();
-        console.log(res1, res2, res3);
+        const res3 = await getDemoTest({ page: 1, count: 5 });
+        const res1 = await getMockOne();
+        console.log(res3);
+        console.log(res1);
     },
     data () {
         return {
@@ -21,8 +22,10 @@ export default {
     },
     methods: {
         async handleGetDate () {
-            const res3 = await getDemoTest();
+            const res3 = await getDemoTest({ page: 1, count: 5 });
+            const res1 = await getMockOne();
             console.log(res3);
+            console.log(res1);
         }
     }
 };

@@ -6,7 +6,11 @@ Vue.use(VueRouter);
 const routes = [
     {
         path: "/",
-        name: "layout",
+        component: () => import("@/components/Layout/Index.vue")
+    },
+    {
+        path: "/Information",
+        name: "Information",
         component: () => import("@/view/Information.vue")
     },
     // {
@@ -14,11 +18,11 @@ const routes = [
     //     name: "layout",
     //     component: () => import("../view/EChartsList.vue")
     // },
-    // {
-    //     path: "/",
-    //     name: "layout",
-    //     component: () => import("../components/Layout/Index.vue")
-    // },
+    {
+        path: "/Index",
+        name: "layout",
+        component: () => import("../components/Layout/Index.vue")
+    },
     {
         path: "/login",
         name: "login",

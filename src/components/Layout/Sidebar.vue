@@ -10,7 +10,7 @@
             active-text-color="#ffd04b">
                 <el-submenu :index="item.path" v-for="(item,index) in muenRouter" :key="muenRouter+index">
                     <template slot="title">
-                        <i :class="item.meta.icon"></i>
+                        <svg-icon  :icon-class="item.meta.icon" ></svg-icon>
                         <span slot="title">{{item.meta.title}}</span>
                     </template>
                     <SideBarItem v-if="item.children && item.children.length>0" :item="item.children"></SideBarItem>
