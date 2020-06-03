@@ -1,4 +1,26 @@
 export const navRouter = [
+    { // 工具
+        path: "/utils",
+        component: "Layout",
+        meta: { title: "工具", icon: "tool" },
+        children: [
+            {
+                path: "/utils/richText",
+                component: "Utils/richText",
+                meta: { title: "富文本", icon: "not_updata_info" }
+            },
+            {
+                path: "/utils/svgList",
+                component: "Utils/svgList",
+                meta: { title: "SVG", icon: "info_circle" }
+            },
+            {
+                path: "/utils/table",
+                component: "Utils/table",
+                meta: { title: "表格", icon: "table" }
+            }
+        ]
+    },
     { // 系统设置
         path: "/setting",
         component: "Layout",
@@ -52,7 +74,7 @@ export const navRouter = [
     { // 视频管理
         path: "/video",
         component: "Layout",
-        meta: { title: "视频设置", icon: "registered" },
+        meta: { title: "视频设置", icon: "" },
         children: [
             {
                 path: "/video/videos",
@@ -78,7 +100,7 @@ export const navRouter = [
     { // 视频管理
         path: "/video",
         component: "Layout",
-        meta: { title: "视频设置", icon: "registered" },
+        meta: { title: "视频设置", icon: "" },
         children: [
             {
                 path: "/video/videos",
@@ -104,7 +126,7 @@ export const navRouter = [
     { // 视频管理
         path: "/video",
         component: "Layout",
-        meta: { title: "视频设置", icon: "registered" },
+        meta: { title: "视频设置", icon: "" },
         children: [
             {
                 path: "/video/videos",
@@ -130,7 +152,7 @@ export const navRouter = [
     { // 视频管理
         path: "/video",
         component: "Layout",
-        meta: { title: "视频设置", icon: "registered" },
+        meta: { title: "视频设置", icon: "" },
         children: [
             {
                 path: "/video/videos",

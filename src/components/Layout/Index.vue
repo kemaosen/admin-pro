@@ -60,13 +60,13 @@ export default {
   min-width: 200px;
   height: 100%;
   overflow-x: hidden;
-  transition: all .5s;
+  transition: all .3s;
 }
 .g-aside-two {
   width: 64px !important;
   min-width: 64px;
   overflow-x: hidden;
-  transition: all .5s;
+  transition: all .3s;
 }
 .el-header {
   border-bottom: 1px solid #ededed;

@@ -29,7 +29,7 @@ Object.keys(custom).forEach(key => {
     Vue.filter(key, custom[key]);
 });
 Vue.use(Element, {
-    size: 12 || "medium",
+    size: "small", // element 组件的尺寸 可以自行调整medium、small、mini
     i18n: (key, value) => i18n.t(key, value)
 });
 
