@@ -18,6 +18,11 @@ export const navRouter = [
                 path: "/utils/table",
                 component: "Utils/table",
                 meta: { title: "表格", icon: "table" }
+            },
+            {
+                path: "/utils/qriously",
+                component: "Utils/qriously",
+                meta: { title: "二维码", icon: "code" }
             }
         ]
     },

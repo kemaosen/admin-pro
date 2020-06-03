@@ -6,10 +6,6 @@
       <el-input v-model="pwad" placeholder="请输入密码"></el-input>
       <el-button @click="handleSubmit">{{ $t('login.denglu') }}</el-button>
     </div>
-    <!-- 生成二维码 -->
-    <div style="block">
-      <qriously :value="wxCodeUrl" :size="170" :backgroundAlpha="1"></qriously>
-    </div>
   </div>
 </template>
 
@@ -20,8 +16,8 @@ export default {
   data() {
     return {
       input: "admin",
-      pwad: "123456",
-      wxCodeUrl: "https://www.baidu.com/"
+      pwad: "123456"
+
     };
   },
   methods: {
