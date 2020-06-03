@@ -11,7 +11,7 @@ export const option = {
         bottom: "25px"
     },
     tooltip: {
-        formatter: function (params, ticket, callback) {
+        formatter: function(params, ticket, callback) {
             // 根据业务自己拓展要显示的内容
             let res = "";
             const name = params.name;

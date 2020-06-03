@@ -1,22 +1,22 @@
  <!-- 页面 -->
 <template>
-    <div>
-               用户管理
-    </div>
+  <div>
+      <p v-for="value in 200">用户管理</p>
+  </div>
 </template>
 <script>
 export default {
-    mounted () {
+  mounted() {
 
-    },
-    data () {
-        return {
+  },
+  data() {
+    return {
 
-        };
-    },
-    methods: {
+    };
+  },
+  methods: {
 
-    }
+  }
 };
 </script>
 <style lang='scss' scoped>

@@ -1,6 +1,6 @@
  <!-- 页面 -->
 <template>
-  <el-container>
+  <el-container class="g-container">
     <!-- 侧边栏 -->
     <el-aside :class="{'g-aside':!isCollapse,'g-aside-two':isCollapse}" style="width:10%">
       <g-sidebar></g-sidebar>
@@ -29,40 +29,44 @@ import GHeader from "./Header.vue";
 import GSidebar from "./Sidebar.vue";
 import { mapGetters } from "vuex";
 export default {
-    mounted () {
-    },
-    data () {
-        return {
+  mounted() {
+  },
+  data() {
+    return {
 
-        };
-    },
-    methods: {
+    };
+  },
+  methods: {
 
-    },
-    components: {
-        GHeader,
-        GSidebar
+  },
+  components: {
+    GHeader,
+    GSidebar
     // GFooter,
-    },
-    computed: {
-        ...mapGetters({
-            isCollapse: "comeIsCollapse"
-        })
-    }
+  },
+  computed: {
+    ...mapGetters({
+      isCollapse: "comeIsCollapse"
+    })
+  }
 };
 </script>
 <style lang='scss' scoped>
+.g-container{
+  height: 100vh;
+  overflow: hidden;
+}
 .g-aside {
   min-width: 200px;
   height: 100%;
   overflow-x: hidden;
-  transition: all 1s;
+  transition: all .5s;
 }
 .g-aside-two {
   width: 64px !important;
   min-width: 64px;
   overflow-x: hidden;
-  transition: all 1s;
+  transition: all .5s;
 }
 .el-header {
   border-bottom: 1px solid #ededed;

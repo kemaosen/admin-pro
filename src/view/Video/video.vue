@@ -7,17 +7,17 @@
 </template>
 <script>
 export default {
-    mounted () {
+  mounted() {
 
-    },
-    data () {
-        return {
+  },
+  data() {
+    return {
 
-        };
-    },
-    methods: {
+    };
+  },
+  methods: {
 
-    }
+  }
 };
 </script>
 <style lang='scss' scoped>

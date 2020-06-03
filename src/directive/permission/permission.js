@@ -1,7 +1,7 @@
 // 自定义指令 参数
 import store from "@/store";
 export default {
-    inserted (el, binding) {
+    inserted(el, binding) {
         // 外部使用 传递的值
         const { value } = binding;// 指令传过来的值['user_delete']
         // 验证权限 查看登录的时候后台返回的颗粒度权限是否含有当前页面传递的颗粒度权限
@@ -18,7 +18,7 @@ export default {
  * @returns {Boolean}
  */
 
-export function checkPermission (value) {
+export function checkPermission(value) {
             // 判断value的类型是不是数组
     if (value && value instanceof Array && value.length > 0) {
         // 获取后台返回的颗粒度权限 应该在登录的时候存 我这里是在store中写死的

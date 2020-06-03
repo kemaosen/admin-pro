@@ -4,7 +4,7 @@
  * @param {string} cFormat
  * @returns {string | null}
  */
-export function parseTime (time, cFormat) {
+export function parseTime(time, cFormat) {
   if (arguments.length === 0) {
     return null;
   }
@@ -57,9 +57,9 @@ export function parseTime (time, cFormat) {
  * @param wait 延迟执行毫秒数
  * @param isPerform true 表立即执行，false 表非立即执行
  */
-export function debounce (fn, wait, isPerform) {
+export function debounce(fn, wait, isPerform) {
   let timeout;
-  return (function () {
+  return (function() {
     const args = arguments;
     clearTimeout(timeout);
     if (isPerform) {
@@ -83,10 +83,10 @@ export function debounce (fn, wait, isPerform) {
  * @param wait 延迟执行毫秒数
  * @param type 1 表时间戳版，2 表定时器版
  */
-export function throttle (fn, wait, type) {
+export function throttle(fn, wait, type) {
   let previous = 0;
   let timeout;
-  return function () {
+  return function() {
     const args = arguments;
     if (type === 1) {
       const now = Date.now();
@@ -106,7 +106,7 @@ export function throttle (fn, wait, type) {
   };
 }
 
-export function param2Obj (url) {
+export function param2Obj(url) {
   const search = url.split("?")[1];
   if (!search) {
     return {};

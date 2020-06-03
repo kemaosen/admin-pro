@@ -71,7 +71,7 @@
       ],
       "vue/script-indent": [
         "error",
-        4
+        2
       ],
       "semi": [
         "error",
@@ -122,7 +122,8 @@
           "allowTemplateLiterals": true
         }
       ],
-      "template-curly-spacing": "off"
+      "template-curly-spacing": "off",
+      "space-before-function-paren": ["error", "never"]
     }
   },
   "postcss": {

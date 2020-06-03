@@ -43,48 +43,48 @@ import MapEcharts from "@/components/echarts/Map.vue";
 import options from "../echarts/index.js";
 import { links, nodes } from "../echarts/data.js";
 export default {
-    async mounted () {
-        const res = await getJCSJEcharts({ projectId: 0, queryType: 1, type: 1 });
-        console.log(res, "数据");
+  async mounted() {
+    const res = await getJCSJEcharts({ projectId: 0, queryType: 1, type: 1 });
+    console.log(res, "数据");
 
-        this.dataList = res.data.dataList;
-        this.yearList = res.data.yearList;
-        this.dadeList = res.data.dateList;
-        this.getUserEcharts();
-        options.graphOption.series[0].links = links;
-        options.graphOption.series[0].data = nodes;
-    },
-    data () {
-        return {
-            dataList: [],
-            dadeList: [],
-            yearList: [],
-            lineUserList: [],
-            xList: [],
-            picUserList: [ { name: "查看企业信息", value: "1290" }, { name: "登录", value: "405" }, { name: "追溯周报表之一", value: "180" } ],
-            options
-        };
-    },
-    methods: {
-        async getUserEcharts () {
-            const data = {
-                total: "48970330",
-                fields: [ "2020-03-19", "2020-03-20", "2020-03-21", "2020-03-22", "2020-03-23", "2020-03-24", "2020-03-25" ],
-                data: [ 458, 305, 108, 132, 261, 2, 0 ]
-            };
-            this.lineUserList = data.data;
-            this.xList = data.fields;
-        }
-    },
-    components: {
-        NumberTwo,
-        LineBar,
-        LineEcharts,
-        PieEcharts,
-        GraphEcharts,
-        MapEcharts,
-        Number
+    this.dataList = res.data.dataList;
+    this.yearList = res.data.yearList;
+    this.dadeList = res.data.dateList;
+    this.getUserEcharts();
+    options.graphOption.series[0].links = links;
+    options.graphOption.series[0].data = nodes;
+  },
+  data() {
+    return {
+      dataList: [],
+      dadeList: [],
+      yearList: [],
+      lineUserList: [],
+      xList: [],
+      picUserList: [ { name: "查看企业信息", value: "1290" }, { name: "登录", value: "405" }, { name: "追溯周报表之一", value: "180" } ],
+      options
+    };
+  },
+  methods: {
+    async getUserEcharts() {
+      const data = {
+        total: "48970330",
+        fields: [ "2020-03-19", "2020-03-20", "2020-03-21", "2020-03-22", "2020-03-23", "2020-03-24", "2020-03-25" ],
+        data: [ 458, 305, 108, 132, 261, 2, 0 ]
+      };
+      this.lineUserList = data.data;
+      this.xList = data.fields;
     }
+  },
+  components: {
+    NumberTwo,
+    LineBar,
+    LineEcharts,
+    PieEcharts,
+    GraphEcharts,
+    MapEcharts,
+    Number
+  }
 };
 </script>
 <style lang='scss' scoped>

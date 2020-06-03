@@ -11,18 +11,18 @@
 import { svgList } from "@/icons/index.js";
 import clipboard from "@/utils/clipboard.js";
 export default {
-    mounted () {
-    },
-    data () {
-        return {
-            svgList
-        };
-    },
-    methods: {
-        handleCopy (event, value) {
-            clipboard(`<svg-icon  icon-class="${value.default.id.substring(5)}" ></svg-icon>`, event);
-        }
+  mounted() {
+  },
+  data() {
+    return {
+      svgList
+    };
+  },
+  methods: {
+    handleCopy(event, value) {
+      clipboard(`<svg-icon  icon-class="${value.default.id.substring(5)}" ></svg-icon>`, event);
     }
+  }
 };
 </script>
 <style lang='scss' coped>

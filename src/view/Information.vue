@@ -28,35 +28,35 @@ import QuillText from "@/components/RichText/QuillText.vue";
 import { getMockOne } from "@/api/mock.js";
 import { parseTime } from "@/utils/index.js";
 const columns = [
-    { prop: "Date", label: "日期", width: 180 },
-    { prop: "Name", label: "姓名", width: 180 },
-    { prop: "Address", label: "地址", width: 180 },
-    { prop: "Paragraph", label: "描述", width: undefined }
+  { prop: "Date", label: "日期", width: 180 },
+  { prop: "Name", label: "姓名", width: 180 },
+  { prop: "Address", label: "地址", width: 180 },
+  { prop: "Paragraph", label: "描述", width: undefined }
 ];
 export default {
-    directives: { permission },
-    created () {
-        this.getDataFromApi();
+  directives: { permission },
+  created() {
+    this.getDataFromApi();
+  },
+  data() {
+    return {
+      columns: columns,
+      tableData: [],
+      filename: "",            // 非必填 文件名
+      autoWidth: true,         // 非必填 单元格大小是否自动
+      bookType: ""             // 非必填 下载的文件类型
+    };
+  },
+  methods: {
+    async getDataFromApi() {
+      const res = await getMockOne();
+      this.tableData = res;
+      console.log(JSON.stringify(res));
     },
-    data () {
-        return {
-            columns: columns,
-            tableData: [],
-            filename: "",            // 非必填 文件名
-            autoWidth: true,         // 非必填 单元格大小是否自动
-            bookType: ""             // 非必填 下载的文件类型
-        };
+    handleClick(row) {
+      window.open(row.Url);
     },
-    methods: {
-        async getDataFromApi () {
-            const res = await getMockOne();
-            this.tableData = res;
-            console.log(JSON.stringify(res));
-        },
-        handleClick (row) {
-            window.open(row.Url);
-        },
-        handleClickDown () {
+    handleClickDown() {
       import("@/vendor/Export2Excel").then(excel => {
         // const tHeader = [ [ "Id", "Title", "Author", "Readings", "Date" ], [ 1, 2, 3, 4, 5 ] ];
         const tHeader = [ "Id", "Title", "Author", "Readings", "Date" ];
@@ -71,20 +71,20 @@ export default {
           bookType: this.bookType
         });
       });
-        },
-        formatJson (filterVal, jsonData) {
-            return jsonData.map(v => filterVal.map(j => {
-                if (j === "timestamp") {
-                    return parseTime(v[j]);
-                } else {
-                    return v[j];
-                }
-            }));
-        }
     },
-    components: {
-        QuillText
+    formatJson(filterVal, jsonData) {
+      return jsonData.map(v => filterVal.map(j => {
+        if (j === "timestamp") {
+          return parseTime(v[j]);
+        } else {
+          return v[j];
+        }
+      }));
     }
+  },
+  components: {
+    QuillText
+  }
 };
 </script>
 

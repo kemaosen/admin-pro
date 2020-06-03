@@ -18,7 +18,7 @@ function generateArray(table) {
       if (cellValue !== "" && cellValue == +cellValue) cellValue = +cellValue;
 
       //Skip ranges
-      ranges.forEach(function (range) {
+      ranges.forEach(function(range) {
         if (R >= range.s.r && R <= range.e.r && outRow.length >= range.s.c && outRow.length <= range.e.c) {
           for (var i = 0; i <= range.e.c - range.s.c; ++i) outRow.push(null);
         }

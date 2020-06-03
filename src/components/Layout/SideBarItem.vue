@@ -16,22 +16,22 @@
 </template>
 <script>
 export default {
-    name: "SideBarItem",
-    mounted () {
-    },
-    props: {
-        item: {
-            type: Array
-        }
-    },
-    data () {
-        return {
-
-        };
-    },
-    methods: {
-
+  name: "SideBarItem",
+  mounted() {
+  },
+  props: {
+    item: {
+      type: Array
     }
+  },
+  data() {
+    return {
+
+    };
+  },
+  methods: {
+
+  }
 };
 </script>
 <style lang='scss' scoped>
