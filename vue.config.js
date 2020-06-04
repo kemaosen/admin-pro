@@ -2,6 +2,8 @@
 "use strict";
 const path = require("path");
 const webpack = require("webpack");
+// const { BundleAnalyzerPlugin } = require("webpack-bundle-analyzer");
+// const SimpleProgressWebpackPlugin = require("simple-progress-webpack-plugin");
 
 function resolve(dir) {
   return path.join(__dirname, dir);
@@ -34,8 +36,7 @@ module.exports = {
 
   // 如果你不需要生产环境的 source map，可以将其设置为 false 以加速生产环境构建。
   productionSourceMap: false,
-
-  // 是一个函数，会接收一个基于 webpack-chain 的 ChainableConfig 实例。允许对内部的 webpack 配置进行更细粒度的修改。
+  // 是一个函数，会接收一个基于 webvuech"Vue" ChainableConfig 实例。允许对内部的 webpack 配置进行更细粒度的修改。
   chainWebpack: (config) => {
     config.module
       .rule("svg")
@@ -59,6 +60,13 @@ module.exports = {
         "window.Quill": "quill/dist/quill.js",
         Quill: "quill/dist/quill.js"
       })
+      // 查看打包体积 默认访问127.0.0.1:8889
+      // new BundleAnalyzerPlugin({
+      //   analyzerPort: 8889, // 指定端口号
+      //   openAnalyzer: false
+      // }),
+      // 打包带有进度条效果
+      // new SimpleProgressWebpackPlugin()
     ]
   },
   // 是否为 Babel 或 TypeScript 使用 thread-loader。该选项在系统的 CPU 有多于一个内核时自动启用，仅作用于生产构建。

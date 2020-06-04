@@ -12,80 +12,80 @@
 </template>
 <script>
 export default {
-    mounted () {
-        setTimeout(() => {
-            this.init();
-            this.windowResize();
-        }, 500);
+  mounted() {
+    setTimeout(() => {
+      this.init();
+      this.windowResize();
+    }, 500);
+  },
+  data() {
+    return {
+      screenWidth: ""
+    };
+  },
+  props: {
+    id: {
+      type: String,
+      required: true
     },
-    data () {
-        return {
-            screenWidth: ""
-        };
+    // 柱状图 折线图
+    echartsType: {
+      type: String,
+      default: "bar",
+      validator: (value) => {
+        return [ "line", "bar" ].indexOf(value) !== -1;
+      }
     },
-    props: {
-        id: {
-            type: String,
-            required: true
-        },
-        // 柱状图 折线图
-        echartsType: {
-            type: String,
-            default: "bar",
-            validator: (value) => {
-                return [ "line", "bar" ].indexOf(value) !== -1;
-            }
-        },
-        dataList: {
-            type: Array,
-            required: true
-        },
-        yearList: {
-            type: Array,
-            required: true
-        },
-        dateList: {
-            type: Array,
-            required: true
-        },
-        option: {
-            type: Object,
-            required: true
-        }
+    dataList: {
+      type: Array,
+      required: true
     },
-    methods: {
-        windowResize (chart) { // 调整浏览器大小所触发的事件
-            window.addEventListener("resize", () => {
-                chart.resize();// echarts自适应屏幕大小
-                return (() => {
-                    window.screenWidth = document.body.clientWidth;
-                    this.screenWidth = window.screenWidth;
-                })();
-            });
-        },
-        init () {
-            this.option.series[0].type = this.echartsType;
-            this.option.xAxis.data = this.dateList;          // X轴 显示的时间节点
-            this.option.series[0].data = this.dataList[0];
-            this.option.series[0].name = this.yearList[0];
-            // this.option.legend.data = this.yearList;        // Y轴 显示的时间节点
-            this.myChart = this.$echarts.init(document.getElementById(this.id));
-            this.myChart.setOption(this.option, true);
-        }
+    yearList: {
+      type: Array,
+      required: true
     },
-    watch: {
-        // 监听类型切换 重新渲染图表数据
-        echartsType (newValue, oldValue) {
-            this.option.series[0].type = newValue;
-            this.myChart.setOption(this.option, true);
-        },
-        dataList (newValue, oldValue) {
-            this.init();
-        },
-        screenWidth: function (val) { // 监听屏幕宽度变化
-            this.init();
-        }
+    dateList: {
+      type: Array,
+      required: true
+    },
+    option: {
+      type: Object,
+      required: true
     }
+  },
+  methods: {
+    windowResize(chart) { // 调整浏览器大小所触发的事件
+      window.addEventListener("resize", () => {
+        chart.resize();// echarts自适应屏幕大小
+        return (() => {
+          window.screenWidth = document.body.clientWidth;
+          this.screenWidth = window.screenWidth;
+        })();
+      });
+    },
+    init() {
+      this.option.series[0].type = this.echartsType;
+      this.option.xAxis.data = this.dateList;          // X轴 显示的时间节点
+      this.option.series[0].data = this.dataList[0];
+      this.option.series[0].name = this.yearList[0];
+      // this.option.legend.data = this.yearList;        // Y轴 显示的时间节点
+      this.myChart = this.$echarts.init(document.getElementById(this.id));
+      this.myChart.setOption(this.option, true);
+    }
+  },
+  watch: {
+    // 监听类型切换 重新渲染图表数据
+    echartsType(newValue, oldValue) {
+      this.option.series[0].type = newValue;
+      this.myChart.setOption(this.option, true);
+    },
+    dataList(newValue, oldValue) {
+      this.init();
+    },
+    screenWidth: function(val) { // 监听屏幕宽度变化
+      this.init();
+    }
+  }
 };
 </script>
 

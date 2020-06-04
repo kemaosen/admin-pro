@@ -1,33 +1,15 @@
 <template>
-    <div>
-        <quill-editor
-            v-model="context"
-            :ref="id"
-            :options="editorOption"
-            @input="$emit('input', $event)"
-        >
-        </quill-editor>
+  <div>
+    <quill-editor v-model="context" :ref="id" :options="editorOption" @input="$emit('input', $event)">
+    </quill-editor>
 
-        <div class="upload" style='display:none'>
-            <el-upload
-                class="avatar-uploader"
-                action
-                ref="upload"
-                name="img"
-                :show-file-list="false"
-                :auto-upload="true"
-                :on-error="handleImageErrorQuill"
-                :on-exceed="beyondFileQuill"
-                :on-success="handleImageSuccessQuill"
-                :http-request="fnUploadRequestQuill"
-                :before-upload="beforeAvatarUploadQuill"
-                :limit="limit"
-                multiple
-            >
-                <i class="el-icon-plus avatar-uploader-icon"  :id="id+'Img'"></i>
-            </el-upload>
-        </div>
+    <div class="upload" style='display:none'>
+      <el-upload class="avatar-uploader" action ref="upload" name="img" :show-file-list="false" :auto-upload="true" :on-error="handleImageErrorQuill" :on-exceed="beyondFileQuill"
+                 :on-success="handleImageSuccessQuill" :http-request="fnUploadRequestQuill" :before-upload="beforeAvatarUploadQuill" :limit="limit" multiple>
+        <i class="el-icon-plus avatar-uploader-icon" :id="id+'Img'"></i>
+      </el-upload>
     </div>
+  </div>
 </template>
 
 <script>
@@ -70,10 +52,10 @@ export default {
             headers: (xhr) => { // 可选参数 设置请求头部
               //    xhr.setRequestHeader('Content-Type','multipart/form-data')
             },
-            sizeError: () => {},  // 图片超过大小的回调
-            start: () => {},  // 可选参数 自定义开始上传触发事件
-            end: () => {},  // 可选参数 自定义上传结束触发的事件，无论成功或者失败
-            error: () => {},  // 可选参数 上传失败触发的事件
+            sizeError: () => { },  // 图片超过大小的回调
+            start: () => { },  // 可选参数 自定义开始上传触发事件
+            end: () => { },  // 可选参数 自定义上传结束触发的事件，无论成功或者失败
+            error: () => { },  // 可选参数 上传失败触发的事件
             success: () => {
             },  // 可选参数  上传成功触发的事件
             change: (xhr, formData) => {
@@ -172,7 +154,7 @@ export default {
 </script>
 <style >
 /* 我也不知道他为啥超出了界限 视频链接 */
-.quill-editor .ql-editing{
+.quill-editor .ql-editing {
   left: 0 !important;
 }
 </style>

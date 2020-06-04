@@ -2,51 +2,52 @@
   font-family: 'LCD';
   src: url('../static/1.ttf');
 }
+
 @mixin scrollbar {
-    max-height: 88vh;
-    margin-bottom: 0.5vh;
-    overflow-y: auto;
-  
-    &::-webkit-scrollbar {
-      width: 6px;
-      height: 6px;
-      background: transparent;
-    }
-  
-    &::-webkit-scrollbar-thumb {
-      background-color: rgba(144, 147, 153, 0.3);
-      border-radius: 10px;
-    }
-  
-    &::-webkit-scrollbar-thumb:hover {
-      background-color: rgba(144, 147, 153, 0.3);
-    }
-}
-  
-@mixin base-scrollbar {
-&::-webkit-scrollbar {
-    width: 13px;
-    height: 13px;
+  max-height: 88vh;
+  margin-bottom: 0.5vh;
+  overflow-y: auto;
+
+  &::-webkit-scrollbar {
+    width: 6px;
+    height: 6px;
+    background: transparent;
+  }
+
+  &::-webkit-scrollbar-thumb {
+    background-color: rgba(144, 147, 153, 0.3);
+    border-radius: 10px;
+  }
+
+  &::-webkit-scrollbar-thumb:hover {
+    background-color: rgba(144, 147, 153, 0.3);
+  }
 }
 
-&::-webkit-scrollbar-thumb {
+@mixin base-scrollbar {
+  &::-webkit-scrollbar {
+    width: 13px;
+    height: 13px;
+  }
+
+  &::-webkit-scrollbar-thumb {
     background-color: rgba(0, 0, 0, 0.4);
     background-clip: padding-box;
     border: 3px solid transparent;
     border-radius: 7px;
-}
+  }
 
-&::-webkit-scrollbar-thumb:hover {
+  &::-webkit-scrollbar-thumb:hover {
     background-color: rgba(0, 0, 0, 0.5);
-}
+  }
 
-&::-webkit-scrollbar-track {
+  &::-webkit-scrollbar-track {
     background-color: transparent;
-}
+  }
 
-&::-webkit-scrollbar-track:hover {
+  &::-webkit-scrollbar-track:hover {
     background-color: #f8fafc;
-}
+  }
 }
 
 html,
@@ -54,39 +55,48 @@ body {
   height: 100%;
 }
 
-.el-main{
-    @include base-scrollbar;
+.el-main {
+  @include base-scrollbar;
 }
-.el-scrollbar__wrap{
-    @include base-scrollbar;
-    overflow:auto;
+
+.el-scrollbar__wrap {
+  @include base-scrollbar;
+  overflow: auto;
 }
+
 // 表格搜索头部
-.table-search{
+.table-search {
+  display: flex;
+  flex-wrap: wrap;
+
+  &>div {
     display: flex;
-    flex-wrap: wrap;
-    &>div{
-        display: flex;
-        align-items: center;
-        margin-bottom: 10px;
-        &>span{
-            width: auto;
-            margin-right: 4px;
-        }
-        &>.el-input,&>.el-select {
-            width: 200px;
-        }
+    align-items: center;
+    margin-bottom: 10px;
+
+    &>span {
+      width: auto;
+      margin-right: 4px;
     }
-    &>div+div{
-        margin-left: 8px;
+
+    &>.el-input,
+    &>.el-select {
+      width: 200px;
     }
+  }
+
+  &>div+div {
+    margin-left: 8px;
+  }
 }
+
 // 表格分页
-.table-pagination{
-    text-align: center;
-    padding: 10px 0;
+.table-pagination {
+  text-align: center;
+  padding: 10px 0;
 }
-.table-pagination-right{
-    text-align: right;
-    padding: 10px 20px ;
+
+.table-pagination-right {
+  text-align: right;
+  padding: 10px 20px;
 }

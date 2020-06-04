@@ -6,32 +6,32 @@
 </template>
 <script>
 export default {
-    mounted () {
-        setTimeout(() => {
-            this.init();
-        }, 500);
-    },
-    data () {
-        return {
+  mounted() {
+    setTimeout(() => {
+      this.init();
+    }, 500);
+  },
+  data() {
+    return {
 
-        };
+    };
+  },
+  props: {
+    id: {
+      type: String,
+      required: true
     },
-    props: {
-        id: {
-            type: String,
-            required: true
-        },
-        option: {
-            type: Object,
-            required: true
-        }
-    },
-    methods: {
-        init () {
-            this.myChart = this.$echarts.init(document.getElementById(this.id));
-            this.myChart.setOption(this.option, true);
-        }
+    option: {
+      type: Object,
+      required: true
     }
+  },
+  methods: {
+    init() {
+      this.myChart = this.$echarts.init(document.getElementById(this.id));
+      this.myChart.setOption(this.option, true);
+    }
+  }
 };
 </script>
 <style lang='scss' scoped>

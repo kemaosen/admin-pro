@@ -10,20 +10,20 @@ import { getLocal } from "@/utils/auth.js";
 Vue.use(VueI18n);
 
 const messages = {
-    zh: {
-        ...zhLocale,
-        ...elementZhLocale
-        },
-    en: {
-        ...enLocale,
-        ...elementENLocale
-    }
+  zh: {
+    ...zhLocale,
+    ...elementZhLocale
+  },
+  en: {
+    ...enLocale,
+    ...elementENLocale
+  }
 };
 
 const i18n = new VueI18n({
-    locale: getLocal("lang") || "en",
-    fallbackLocale: "zh",
-    messages
+  locale: getLocal("lang") || "en",
+  fallbackLocale: "zh",
+  messages
 });
 
 export default i18n;

@@ -6,38 +6,38 @@
 </template>
 <script>
 export default {
-    mounted () {
-        setTimeout(() => {
-            this.init();
-        }, 500);
+  mounted() {
+    setTimeout(() => {
+      this.init();
+    }, 500);
+  },
+  data() {
+    return {
+    };
+  },
+  props: {
+    id: {
+      type: String,
+      required: true
     },
-    data () {
-        return {
-        };
+    dataList: {
+      type: Array,
+      required: true
     },
-    props: {
-        id: {
-            type: String,
-            required: true
-        },
-        dataList: {
-            type: Array,
-            required: true
-        },
-        option: {
-            type: Object,
-            required: true
-        }
-    },
-    methods: {
-        init () {
-            this.option.series[0].data = this.dataList;
-            this.myChart = this.$echarts.init(document.getElementById(this.id));
-            this.myChart.setOption(this.option, true);
-        }
-    },
-    watch: {
+    option: {
+      type: Object,
+      required: true
     }
+  },
+  methods: {
+    init() {
+      this.option.series[0].data = this.dataList;
+      this.myChart = this.$echarts.init(document.getElementById(this.id));
+      this.myChart.setOption(this.option, true);
+    }
+  },
+  watch: {
+  }
 };
 </script>
 <style lang='scss' scoped>
