@@ -2,7 +2,9 @@ import Vue from "vue";
 import VueRouter from "vue-router";
 
 Vue.use(VueRouter);
-
+/*
+hidden: true // 添加这个属性 不会再路由菜单上显示
+*/
 const routes = [ {
     path: "/",
     component: () => import("@/components/Layout/Index.vue")

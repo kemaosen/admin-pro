@@ -1,3 +1,6 @@
+/*
+hidden: true // 添加这个属性 不会再路由菜单上显示
+*/
 export const navRouter = [
     { // 工具
         path: "/utils",
