@@ -23,7 +23,13 @@ export const navRouter = [
                 path: "/utils/qriously",
                 component: "Utils/qriously",
                 meta: { title: "二维码", icon: "code" }
+            },
+            {
+                path: "/utils/hidden",
+                hidden: true,
+                component: "Utils/hidden"
             }
+
         ]
     },
     { // 系统设置

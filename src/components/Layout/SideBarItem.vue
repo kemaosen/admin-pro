@@ -9,7 +9,7 @@
         </el-submenu>
       </div>
       <div v-else :key="'itema'+index">
-        <el-menu-item :index="value.path">
+        <el-menu-item :index="value.path"  v-if="!value.hidden">
           <svg-icon v-if="value.meta.icon" :icon-class="value.meta.icon"></svg-icon> <span>{{value.meta.title}}</span>
         </el-menu-item>
       </div>
